@@ -4,6 +4,7 @@ Contributors: slaptijack
 Requires at least: 2.2.3
 Tested up to: 2.6
 Stable tag: 0.3.2
+Donate link: http://slaptijack.com
 
 Adds a Google PageRank column to your Manage Pages and Manage Posts administration panels.
 
@@ -16,6 +17,11 @@ This plugin adds a Google PageRank (PR) column to your Manage Pages and Manage P
 1. Download the ZIP file and expand it.
 1. Copy the slaptigooglepr.php file to your wp-content/plugins/ directory.
 1. Go to the Plugins Panel of your WordPress Adminstration page and click the Activate link for SlaptiGooglePR.
+
+== Screenshots ==
+
+1. SlaptiGooglePR and Withering Fig view 1
+2. SlaptiGooglePR and Withering Fig view 2
 
 == Frequently Asked Questions ==
 
