@@ -21,4 +21,4 @@ This plugin adds a Google PageRank (PR) column to your Manage Pages and Manage P
 
 = Are there any frequently asked questions? =
 
-None yet, [just ask](mailto:slap@slaptijack.com "Scott Hebert (Slaptijack)").
+None yet, [just ask](mailto:slap@slaptijack.com "Scott Hebert (Slaptijack)") or visit [my Projects page](http://slaptijack.com/projects/) for more information.
