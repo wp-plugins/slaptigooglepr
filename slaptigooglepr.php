@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: SlaptiGooglePR
-Plugin URI: http://slaptijack.com
+Plugin URI: http://slaptijack.com/projects/
 Description: Adds a Google PR column to your manage posts admin panel.  This will give you the individual page rank of each post on your site.
 Version: 0.3.2
 Author: Scott Hebert (Slaptijack)
