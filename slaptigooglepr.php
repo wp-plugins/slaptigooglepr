@@ -2,7 +2,7 @@
 /*
 Plugin Name: SlaptiGooglePR
 Plugin URI: http://slaptijack.com/projects/
-Description: Adds a Google PageRank (PR) column to your manage posts admin panel.  This will give you the individual pagerank of each post on your site. Also includes site-wide pagerank in the top right hand corner of your WordPress Dashboard.
+Description: This plugin adds a Google PageRank (PR) column to your Manage Pages and Manage Posts administration panels.  This will give you the individual PageRank of each page / post on your site. Also includes site-wide PageRank in the top right hand corner of your WordPress Dashboard.
 Version: 0.3.2
 Author: Scott Hebert (Slaptijack)
 Author URI: http://slaptijack.com
@@ -21,12 +21,11 @@ class SlaptiGooglePR {
     $length = strlen($Str);
     for ($i = 0; $i < $length; $i++) {
       $Check *= $Magic; 	
-      //If the float is beyond the boundaries of integer (usually +/- 2.15e+9 = 2^31), 
-      //  the result of converting to integer is undefined
-      //  refer to http://www.php.net/manual/en/language.types.integer.php
+      /* If the float is beyond the boundaries of integer (usually +/- 2.15e+9 = 2^31), 
+         the result of converting to integer is undefined
+         refer to http://www.php.net/manual/en/language.types.integer.php */
       if ($Check >= $Int32Unit) {
         $Check = ($Check - $Int32Unit * (int) ($Check / $Int32Unit));
-        //if the check less than -2^31
         $Check = ($Check < -2147483648) ? ($Check + $Int32Unit) : $Check;
       }
       $Check += ord($Str{$i}); 
@@ -82,10 +81,10 @@ class SlaptiGooglePR {
     return '7'.$CheckByte.$HashStr;
   }
 
-  //return the pagerank checksum hash
+  //return the PageRank checksum hash
   function getch($url) { return SlaptiGooglePR::CheckHash(SlaptiGooglePR::HashURL($url)); }
 
-  //return the pagerank figure
+  //return the PageRank figure
   function getpr($url) {
     $googlehost='toolbarqueries.google.com';
     $googleua='Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.0.6) Gecko/20060728 Firefox/1.5';
@@ -93,18 +92,14 @@ class SlaptiGooglePR {
     $fp = fsockopen($googlehost, 80, $errno, $errstr, 30);
     if ($fp) {
       $out = "GET /search?client=navclient-auto&ch=$ch&features=Rank&q=info:$url HTTP/1.1\r\n";
-      //echo "<pre>$out</pre>\n"; //debug only
       $out .= "User-Agent: $googleua\r\n";
       $out .= "Host: $googlehost\r\n";
       $out .= "Connection: Close\r\n\r\n";
       
       fwrite($fp, $out);
       
-      // $pagerank = substr(fgets($fp, 128), 4); //debug only
-      // echo $pagerank; //debug only
       while (!feof($fp)) {
         $data = fgets($fp, 128);
-        // echo $data;
         $pos = strpos($data, "Rank_");
         if($pos === false){} else{
           $pr=substr($data, $pos + 9);
@@ -113,12 +108,11 @@ class SlaptiGooglePR {
           return $pr;
         }
       }
-      // else { echo "$errstr ($errno)<br />\n"; } //debug only
       fclose($fp);
     }
   }
   
-  //generate the graphical pagerank
+  //generate the graphical PageRank
   function pagerank($url,$width=40,$method='style') {
     if (!preg_match('/^(http:\/\/)?([^\/]+)/i', $url)) { $url='http://'.$url; }
     $pr=SlaptiGooglePR::getpr($url);
@@ -132,8 +126,8 @@ class SlaptiGooglePR {
     }
     //The pre-styled method
     if ($method == 'style') {
-      $prpercent=100*$pr/10;
-      $html='<div style="position: relative; width: '.$width.'px; padding: 0; background: #D9D9D9;"><strong style="width: '.$prpercent.'%; display: block; position: relative; background: #5EAA5E; text-align: center; color: #333; height: 4px; line-height: 4px;"><span></span></strong></div>';
+      $prpercent  = 100 * $pr / 10;
+      $html       = '<div style="position: relative; width: '.$width.'px; padding: 0; background: #D9D9D9;"><strong style="width: '.$prpercent.'%; display: block; position: relative; background: #5EAA5E; text-align: center; color: #333; height: 4px; line-height: 4px;"><span></span></strong></div>';
     }
 	
     $out='<a href="'.$url.'" title="'.$pagerank.'">'.$html.'</a>';
