@@ -3,8 +3,8 @@
 Plugin Name: SlaptiGooglePR
 Plugin URI: http://slaptijack.com
 Description: Adds a Google PR column to your manage posts admin panel.  This will give you the individual page rank of each post on your site.
-Version: 0.3.0
-Author: Slaptijack
+Version: 0.3.2
+Author: Scott Hebert (Slaptijack)
 Author URI: http://slaptijack.com
 */
 
@@ -150,33 +150,44 @@ class SlaptiGooglePR {
         margin: 0; padding: 0;
         right: 1em;
         font-size: 16px;
-        color: #f1f1f1;
       }
       </style>";
   }
   
   function add_admin_footer() {
-    echo get_option('siteurl');
     $url = get_option('siteurl');
     $pr = 0 + SlaptiGooglePR::getpr($url);
     echo "<p id='slaptigooglepr'>Google PageRank: $pr</p>";
+  }
+
+  function add_manage_pages_column($pages_columns) {
+    $pages_columns['slaptigooglepr'] = __('<center><span title=\'Google Page Rank provided by SlaptiGooglePR\'>Google PR</span></center>', 'slaptigooglepr');
+    return $pages_columns;
   }
   
   function add_manage_posts_column($posts_columns) {
     $posts_columns['slaptigooglepr'] = __('<center><span title=\'Google Page Rank provided by SlaptiGooglePR\'>Google PR</span></center>', 'slaptigooglepr');
     return $posts_columns;
   }
+
+  function display_manage_pages_column($colname, $id) {
+    if ($colname != 'slaptigooglepr') { return; }
+    $url = get_permalink($id);
+    $pr = 0 + SlaptiGooglePR::getpr($url);
+    echo "<center>$pr</center>";
+  }
   
   function display_manage_posts_column($colname, $id) {
     if ($colname != 'slaptigooglepr') { return; }
     $url = get_permalink($id);
-    // $url = 'http://www.witheringfig.com/2007/02/07/5-keys-to-picking-the-best-bible-translation-for-you/';
     $pr = 0 + SlaptiGooglePR::getpr($url);
     echo "<center>$pr</center>";
   }
 }
 
+add_filter('manage_pages_columns', array('SlaptiGooglePR','add_manage_pages_column'));
 add_filter('manage_posts_columns', array('SlaptiGooglePR','add_manage_posts_column'));
+add_action('manage_pages_custom_column', array('SlaptiGooglePR','display_manage_pages_column'), 10, 2);
 add_action('manage_posts_custom_column', array('SlaptiGooglePR','display_manage_posts_column'), 10, 2);
 add_action('admin_head', array('SlaptiGooglePR','add_admin_css'));
 add_action('admin_footer', array('SlaptiGooglePR','add_admin_footer'));
