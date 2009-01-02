@@ -3,7 +3,7 @@
 Plugin Name: SlaptiGooglePR
 Plugin URI: http://slaptijack.com/projects/
 Description: This plugin adds a Google PageRank (PR) column to your Manage Pages and Manage Posts administration panels.  This will give you the individual PageRank of each page / post on your site. Also includes site-wide PageRank in the top right hand corner of your WordPress Dashboard.
-Version: 0.3.3
+Version: 0.3.4
 Author: Scott Hebert (Slaptijack)
 Author URI: http://slaptijack.com
 */
@@ -138,7 +138,7 @@ class SlaptiGooglePR {
   function add_admin_css() {
     echo "
       <style type='text/css'>
-      #slaptigooglepr {
+      #slaptigooglepr_header {
         position: absolute;
         top: 4.5em;
         margin: 0; padding: 0;
@@ -151,7 +151,7 @@ class SlaptiGooglePR {
   function add_admin_footer() {
     $url = get_option('siteurl');
     $pr = 0 + SlaptiGooglePR::getpr($url);
-    echo "<p id='slaptigooglepr'>Google PageRank: $pr</p>";
+    echo "<p id='slaptigooglepr_header'>Google PageRank: $pr</p>";
   }
 
   function add_manage_pages_column($pages_columns) {

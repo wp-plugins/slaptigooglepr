@@ -3,7 +3,7 @@ Tags: google, pagerank
 Contributors: slaptijack
 Requires at least: 2.2.3
 Tested up to: 2.7
-Stable tag: 0.3.3
+Stable tag: 0.3.4
 Donate link: http://slaptijack.com
 
 Adds a Google PageRank column to your Manage Pages and Manage Posts administration panels.
