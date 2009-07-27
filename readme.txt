@@ -2,8 +2,8 @@
 Tags: google, pagerank
 Contributors: slaptijack
 Requires at least: 2.2.3
-Tested up to: 2.7.1
-Stable tag: 0.3.5
+Tested up to: 2.8.2
+Stable tag: 0.4.0
 Donate link: http://slaptijack.com
 
 Adds a Google PageRank column to your Manage Pages and Manage Posts administration panels.
@@ -28,3 +28,8 @@ This plugin adds a Google PageRank (PR) column to your Manage Pages and Manage P
 = Are there any frequently asked questions? =
 
 None yet, [just ask](mailto:slap@slaptijack.com "Scott Hebert (Slaptijack)") or visit [my Projects page](http://slaptijack.com/projects/) for more information.
+
+== Changelog ==
+
+= 0.4.0 =
+* Do not perform lookups on posts and pages that haven't been published. This should speed up admin page loads when there are a lot of drafts listed.
