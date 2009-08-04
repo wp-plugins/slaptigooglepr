@@ -2,7 +2,7 @@
 Tags: google, pagerank
 Contributors: slaptijack
 Requires at least: 2.2.3
-Tested up to: 2.8.2
+Tested up to: 2.8.3
 Stable tag: 0.4.0
 Donate link: http://slaptijack.com
 
