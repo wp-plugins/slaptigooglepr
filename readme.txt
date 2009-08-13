@@ -1,12 +1,12 @@
-=== SlaptiGooglePR ===
-Tags: google, pagerank
+=== Google PageRank Tool ===
+Tags: google, pagerank, page rank
 Contributors: slaptijack
 Requires at least: 2.2.3
 Tested up to: 2.8.4
 Stable tag: 0.4.0
 Donate link: http://slaptijack.com
 
-Adds a Google PageRank column to your Manage Pages and Manage Posts administration panels.
+The Google PageRank Tool (formerly known as SlaptiGooglePR) adds a Google PageRank column to your Manage Pages and Manage Posts administration panels.
 
 == Description ==
 
@@ -16,12 +16,7 @@ This plugin adds a Google PageRank (PR) column to your Manage Pages and Manage P
 
 1. Download the ZIP file and expand it.
 1. Copy the slaptigooglepr.php file to your wp-content/plugins/ directory.
-1. Go to the Plugins Panel of your WordPress Adminstration page and click the Activate link for SlaptiGooglePR.
-
-== Screenshots ==
-
-1. SlaptiGooglePR and Withering Fig view 1
-2. SlaptiGooglePR and Withering Fig view 2
+1. Go to the Plugins Panel of your WordPress Adminstration page and click the Activate link for Google PageRank Tool.
 
 == Frequently Asked Questions ==
 
