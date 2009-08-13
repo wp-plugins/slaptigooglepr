@@ -14,6 +14,8 @@ This plugin adds a Google PageRank (PR) column to your Manage Pages and Manage P
 
 This plugin was formerly known as SlaptiGooglePR.
 
+PageRank is a trademark of Google, Inc.
+
 == Installation ==
 
 1. Download the ZIP file and expand it.
