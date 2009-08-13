@@ -12,6 +12,8 @@ The Google PageRank Tool (formerly known as SlaptiGooglePR) adds a Google PageRa
 
 This plugin adds a Google PageRank (PR) column to your Manage Pages and Manage Posts administration panels.  This will give you the individual PageRank of each page / post on your site. Also includes site-wide PageRank in the top right hand corner of your WordPress Dashboard.
 
+This plugin was formerly known as SlaptiGooglePR.
+
 == Installation ==
 
 1. Download the ZIP file and expand it.
