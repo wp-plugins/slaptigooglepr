@@ -3,7 +3,7 @@
 Plugin Name: Google PageRank Tool
 Plugin URI: http://slaptijack.com/projects/
 Description: This plugin adds a Google PageRank (PR) column to your Manage Pages and Manage Posts administration panels.  This will give you the individual PageRank of each page / post on your site. Also includes site-wide PageRank in the top right hand corner of your WordPress Dashboard.
-Version: 0.4.0
+Version: 0.5.0
 Author: Scott Hebert
 Author URI: http://slaptijack.com
 */
@@ -91,7 +91,7 @@ class SlaptiGooglePR {
     $ch = SlaptiGooglePR::getch($url);
     $fp = fsockopen($googlehost, 80, $errno, $errstr, 30);
     if ($fp) {
-      $out = "GET /search?client=navclient-auto&ch=$ch&features=Rank&q=info:$url HTTP/1.1\r\n";
+      $out = "GET /tbr?client=navclient-auto&features=Rank&ch=$ch&q=info:$url HTTP/1.1\r\n";
       $out .= "User-Agent: $googleua\r\n";
       $out .= "Host: $googlehost\r\n";
       $out .= "Connection: Close\r\n\r\n";

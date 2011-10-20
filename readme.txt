@@ -2,8 +2,8 @@
 Tags: google, pagerank, page rank
 Contributors: slaptijack
 Requires at least: 2.2.3
-Tested up to: 2.8.4
-Stable tag: 0.4.0
+Tested up to: 3.2.1
+Stable tag: 0.5.0
 Donate link: http://slaptijack.com
 
 The Google PageRank Tool (formerly known as SlaptiGooglePR) adds a Google PageRank column to your Manage Pages and Manage Posts administration panels.
@@ -29,6 +29,9 @@ PageRank is a trademark of Google, Inc.
 None yet, [just ask](mailto:slap@slaptijack.com "Scott Hebert (Slaptijack)") or visit [my Projects page](http://slaptijack.com/projects/) for more information.
 
 == Changelog ==
+
+= 0.5.0 =
+* Change the lookup URL to use Google's new URL.
 
 = 0.4.0 =
 * Do not perform lookups on posts and pages that haven't been published. This should speed up admin page loads when there are a lot of drafts listed.
