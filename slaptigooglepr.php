@@ -3,7 +3,7 @@
 Plugin Name: Google PageRank Tool
 Plugin URI: http://slaptijack.com/projects/
 Description: This plugin adds a Google PageRank (PR) column to your Manage Pages and Manage Posts administration panels.  This will give you the individual PageRank of each page / post on your site. Also includes site-wide PageRank in the top right hand corner of your WordPress Dashboard.
-Version: 0.5.0
+Version: 12.08
 Author: Scott Hebert
 Author URI: http://slaptijack.com
 */
@@ -11,9 +11,7 @@ Author URI: http://slaptijack.com
 class SlaptiGooglePR {
   /* The following functions are from PageRank Lookup v1.1 by HM2K (http://www.hm2k.com/projects/pagerank/).  These functions were developed based on the algorithm at http://pagerank.gamesaga.net/
   */
-  
-  
-  
+    
   //convert a string to a 32-bit integer
   function StrToNum($Str, $Check, $Magic) {
     $Int32Unit = 4294967296;  // 2^32
@@ -158,12 +156,12 @@ class SlaptiGooglePR {
   }
 
   function add_manage_pages_column($pages_columns) {
-    $pages_columns['slaptigooglepr'] = __('<span title=\'Google Page Rank provided by SlaptiGooglePR\'>Google PR</span>', 'slaptigooglepr');
+    $pages_columns['slaptigooglepr'] = __('<span title=\'Provided by Google PageRank Tool\'>Google PR</span>', 'slaptigooglepr');
     return $pages_columns;
   }
   
   function add_manage_posts_column($posts_columns) {
-    $posts_columns['slaptigooglepr'] = __('<span title=\'Google Page Rank provided by SlaptiGooglePR\'>Google PR</span>', 'slaptigooglepr');
+    $posts_columns['slaptigooglepr'] = __('<span title=\'Provided by Google PageRank Tool\'>Google PR</span>', 'slaptigooglepr');
     return $posts_columns;
   }
 
@@ -196,13 +194,28 @@ class SlaptiGooglePR {
     
     echo "$pr";
   }
+
+    function rightnow() {
+        $pr = 0 + SlaptiGooglePR::getpr(get_option('siteurl'));
+        echo "<p id='slaptigooglepr'>Google PageRank: <strong>$pr</strong> <a title=\"Provided by Google PageRank Tool\" href=\"http://wordpress.org/extend/plugins/slaptigooglepr/\">[*]</a></p>";
+    }
 }
+
 
 add_filter('manage_pages_columns', array('SlaptiGooglePR','add_manage_pages_column'));
 add_filter('manage_posts_columns', array('SlaptiGooglePR','add_manage_posts_column'));
 add_action('manage_pages_custom_column', array('SlaptiGooglePR','display_manage_pages_column'), 10, 2);
 add_action('manage_posts_custom_column', array('SlaptiGooglePR','display_manage_posts_column'), 10, 2);
-add_action('admin_head', array('SlaptiGooglePR','add_admin_css'));
-add_action('admin_footer', array('SlaptiGooglePR','add_admin_footer'));
+
+// How to display the site-wide PageRank is mainly a function of which 
+// version you're using. If you have the rightnow_end action available,
+// we want to use that. Otherwise we'll stick the info at the top of
+// the page.
+if ( has_action('rightnow_end') ) {
+    add_action('rightnow_end', array('SlaptiGooglePR','rightnow'));
+} elseif ( has_action('admin_head') && has_action('admin_footer') ) {
+    add_action('admin_head', array('SlaptiGooglePR','add_admin_css'));
+    add_action('admin_footer', array('SlaptiGooglePR','add_admin_footer'));
+}
 
 ?>

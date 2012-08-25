@@ -1,9 +1,9 @@
 === Google PageRank Tool ===
-Tags: google, pagerank, page rank
+Tags: google, pagerank, page rank, google pagerank
 Contributors: slaptijack
 Requires at least: 2.2.3
-Tested up to: 3.2.1
-Stable tag: 0.5.0
+Tested up to: 3.4.1
+Stable tag: 12.08
 Donate link: http://slaptijack.com
 
 The Google PageRank Tool (formerly known as SlaptiGooglePR) adds a Google PageRank column to your Manage Pages and Manage Posts administration panels.
@@ -29,6 +29,9 @@ PageRank is a trademark of Google, Inc.
 None yet, [just ask](mailto:slap@slaptijack.com "Scott Hebert (Slaptijack)") or visit [my Projects page](http://slaptijack.com/projects/) for more information.
 
 == Changelog ==
+
+= 12.08 =
+* Put the site-wide Google PageRank in the "Right Now" box if available. Otherwise, use the old position.
 
 = 0.5.0 =
 * Change the lookup URL to use Google's new URL.
