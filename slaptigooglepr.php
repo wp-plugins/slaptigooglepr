@@ -207,15 +207,10 @@ add_filter('manage_posts_columns', array('SlaptiGooglePR','add_manage_posts_colu
 add_action('manage_pages_custom_column', array('SlaptiGooglePR','display_manage_pages_column'), 10, 2);
 add_action('manage_posts_custom_column', array('SlaptiGooglePR','display_manage_posts_column'), 10, 2);
 
-// How to display the site-wide PageRank is mainly a function of which 
-// version you're using. If you have the rightnow_end action available,
-// we want to use that. Otherwise we'll stick the info at the top of
-// the page.
-if ( has_action('rightnow_end') ) {
-    add_action('rightnow_end', array('SlaptiGooglePR','rightnow'));
-} elseif ( has_action('admin_head') && has_action('admin_footer') ) {
-    add_action('admin_head', array('SlaptiGooglePR','add_admin_css'));
-    add_action('admin_footer', array('SlaptiGooglePR','add_admin_footer'));
-}
+// I used to worry about breaking older versions of Wordpress and
+// worked around the old stuff. The fact of the matter is if you're
+// using an old enough version of Wordpress that the old workaround
+// was a good thing, you're a menace to the Internet.
+add_action('activity_box_end', array('SlaptiGooglePR','rightnow'));
 
 ?>

@@ -2,8 +2,8 @@
 Tags: google, pagerank, page rank, google pagerank
 Contributors: slaptijack
 Requires at least: 2.2.3
-Tested up to: 3.4.1
-Stable tag: 12.08
+Tested up to: 4.2.2
+Stable tag: 15.07
 Donate link: http://slaptijack.com
 
 The Google PageRank Tool (formerly known as SlaptiGooglePR) adds a Google PageRank column to your Manage Pages and Manage Posts administration panels.
