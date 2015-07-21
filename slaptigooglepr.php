@@ -3,7 +3,7 @@
 Plugin Name: Google PageRank Tool
 Plugin URI: http://slaptijack.com/projects/
 Description: This plugin adds a Google PageRank (PR) column to your Manage Pages and Manage Posts administration panels.  This will give you the individual PageRank of each page / post on your site. Also includes site-wide PageRank in the top right hand corner of your WordPress Dashboard.
-Version: 12.08
+Version: 15.07
 Author: Scott Hebert
 Author URI: http://slaptijack.com
 */
